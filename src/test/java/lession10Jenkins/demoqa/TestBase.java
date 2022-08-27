@@ -16,7 +16,7 @@ public class TestBase {
         Configuration.holdBrowserOpen = true;
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1600x1200";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
 // добавление видео
