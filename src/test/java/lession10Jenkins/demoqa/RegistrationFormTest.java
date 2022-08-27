@@ -54,8 +54,8 @@ public class RegistrationFormTest extends TestBase {
             $(".react-datepicker__year-select").selectOption("1990");
             $("[aria-label$='March 13th, 1990']").click();});
         step("выбрать навыки", ()->{
-            $("#subjectsInput").setValue("Physics").pressEnter();});
-            $(byText("Sports")).click();
+            $("#subjectsInput").setValue("Physics").pressEnter();
+            $(byText("Sports")).click();});
         step("загрузить изображение", ()-> {
             $("#uploadPicture").uploadFromClasspath(picture);});
         step("ввести адрес", ()->{
