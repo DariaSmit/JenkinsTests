@@ -2,6 +2,7 @@ package lession10Jenkins;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FailedTest {
@@ -10,32 +11,32 @@ public class FailedTest {
 
     @Test
     void Test00() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
     @Test
     void Test01() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
     @Test
     void Test02() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
     @Test
     void Test03() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
     @Test
     void Test04() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
     @Test
     void Test05() {
-        assertTrue(false);
+        assertFalse(false);
 
     }
 }

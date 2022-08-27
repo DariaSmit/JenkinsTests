@@ -24,9 +24,7 @@ public class RegistrationFormTest extends TestBase {
     @Test
     @DisplayName("Testing the students registration form")
     void fillFormTest() {
-        step("open registration form", () -> {
-            Selenide.open("/automation-practice-form");
-        });
+
         Faker faker = new Faker();
         String firstName = faker.name().firstName(),
                 lastName = faker.name().firstName(),
@@ -36,40 +34,48 @@ public class RegistrationFormTest extends TestBase {
                 address = "Moscow street 15",
                 picture = "OMG.png";
 
-        step("Fill registration form", () -> {
+        step("открыть форму регистрации", () -> {
+            Selenide.open("/automation-practice-form");
+        });
 
-
-            $("#firstName").setValue(firstName);
-            $("#lastName").setValue(lastName);
-            $("#userEmail").setValue(userEmail);
-            $("#userNumber").setValue(phone);
-            $(byText(gender)).click();
-
+        step("Ввести имя", () -> {
+            $("#firstName").setValue(firstName);});
+        step("ввести фамилию",()->{
+            $("#lastName").setValue(lastName);});
+        step("ввести эмеил'",()->{
+            $("#userEmail").setValue(userEmail);});
+        step("ввести номер телефона",()->{
+            $("#userNumber").setValue(phone);});
+        step("указать пол", ()->{
+            $(byText(gender)).click();});
+        step("указать день рождения", ()->{
             $("#dateOfBirthInput").click();
             $(".react-datepicker__month-select").selectOption("March");
             $(".react-datepicker__year-select").selectOption("1990");
-            $("[aria-label$='March 13th, 1990']").click();
-
-            $("#subjectsInput").setValue("Physics").pressEnter();
+            $("[aria-label$='March 13th, 1990']").click();});
+        step("выбрать навыки", ()->{
+            $("#subjectsInput").setValue("Physics").pressEnter();});
             $(byText("Sports")).click();
-            $("#uploadPicture").uploadFromClasspath(picture);
+        step("загрузить изображение", ()-> {
+            $("#uploadPicture").uploadFromClasspath(picture);});
+        step("ввести адрес", ()->{
             $("#currentAddress").setValue(address);
             $("#stateCity-wrapper").click();
             $(byText("NCR")).click();
             $("#city").click();
-            $(byText("Delhi")).click();
-            $("#submit").click();
-        });
+            $(byText("Delhi")).click();});
+         step("подтвердить заполнение анкеты", ()->{
+            $("#submit").click();});
 
-        step("Verify form data", () -> {
-            $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-            $(".table-responsive").shouldHave(
-                    text(firstName),
-                    text(lastName),
-                    text(userEmail),
-                    text(phone),
-                    text(address));
-        });
+        step("Проверка полей", () ->{
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(
+                text(firstName),
+                text(lastName),
+                text(userEmail),
+                text(phone),
+                text(address));
+    });
+
     }
-
 }
