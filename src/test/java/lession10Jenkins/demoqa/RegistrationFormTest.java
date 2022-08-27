@@ -57,7 +57,7 @@ public class RegistrationFormTest extends TestBase {
             $("#stateCity-wrapper").click();
             $(byText("NCR")).click();
             $("#city").click();
-            $(byText("Noida")).click();
+            $(byText("Delhi")).click();
             $("#submit").click();
         });
 
