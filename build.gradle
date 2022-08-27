@@ -10,12 +10,20 @@ repositories {
 dependencies {
     testImplementation (
             "org.junit.jupiter:junit-jupiter:5.8.2",
-            'io.qameta.allure:allure-selenide:2.19.0',
+            "com.github.javafaker:javafaker:1.0.2",
             "org.slf4j:slf4j-simple:1.7.36",
-
+            "com.codeborne:selenide:6.3.5",
+            'io.qameta.allure:allure-selenide:2.19.0',
+            'org.assertj:assertj-core:3.23.1',
+            'org.hamcrest:hamcrest-all:1.3',
+            'com.codeborne:xls-test:1.4.0',
+            'com.opencsv:opencsv:5.6',
+            'com.google.code.gson:gson:2.9.1',
+            'com.googlecode.json-simple:json-simple:1.1.1'
     )
+    testImplementation ('com.codeborne:pdf-test:1.7.0') {
+        exclude group: 'org.apache.poi' }
 
-}
 allure {
     report {
         version.set("2.19.0") //версия Allure Report (https://github.com/allure-framework/allure2)
@@ -35,4 +43,11 @@ tasks.withType(JavaCompile) {
 }
 test {
     useJUnitPlatform()
+  }
+}
+
+task demoqa_tests(type :Test) {
+    useJUnitPlatform{
+        includeTags "demoqa"
+    }
 }
