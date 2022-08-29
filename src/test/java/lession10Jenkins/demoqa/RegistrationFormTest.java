@@ -2,7 +2,9 @@ package lession10Jenkins.demoqa;
 
 import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
+import config.CredentialsConfig;
 import io.qameta.allure.*;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -14,7 +16,6 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 public class RegistrationFormTest extends TestBase {
-
 
     @Owner("DariaSmit")
     @Severity(SeverityLevel.MINOR)
