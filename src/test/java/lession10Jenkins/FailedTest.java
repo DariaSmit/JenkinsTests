@@ -26,7 +26,7 @@ public class FailedTest {
     }
     @Test
     void Test03() {
-        assertFalse(false);
+        assertFalse(true);
 
     }
     @Test
